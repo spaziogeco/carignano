@@ -68,6 +68,13 @@ body {
 
 body * {
   box-sizing: border-box;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 .load-video {
@@ -149,6 +156,10 @@ body * {
   text-align: center;
 }
 
+.reply-box h3 {
+  font-size: 0.8em;
+}
+
 .container-answer {
   padding: 80px 50px;
 }
@@ -226,6 +237,7 @@ body * {
   height: 100%;
   padding: 50px;
   position: relative;
+  pointer-events: none;
 }
 
 .video-loop-failure,
@@ -239,7 +251,7 @@ body * {
 .video-loop-failure .video-container,
 .video-loop-success .video-container {
   background: yellow;
-  height: 100%;
+  height: calc(100% - 55px);
   width: 100%;
 }
 
@@ -362,6 +374,21 @@ body * {
   max-width: 150px;
 }
 
+.back,
+.next_answer a{
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #00ba00;
+  text-decoration: none;
+  margin-bottom: 25px;
+  display: block;
+}
+
+
+.back{
+  color: #bf2e3b;
+}
+
 @media(width:1024px) and (height:600px) {
   body {
     width: 1024px;
@@ -389,6 +416,7 @@ body * {
 
   .container-answer .answer h2 {
     min-height: 50px;
+    pointer-events: none;
   }
 
   .box .reply-box {

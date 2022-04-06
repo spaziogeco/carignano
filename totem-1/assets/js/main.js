@@ -49,13 +49,13 @@ jQuery(document).ready(function($){
     let r_3 = 'Automobili';
     let r_4 = 'Mattoni';
     let r_5 = 'museo';
-    let r_6 = 'servizi pubblici';
+    let r_6 = 'libreria';
     let r_7 = 'negozio';
-    let r_8 = 'palestra';
-    let r_9 = 'srotolare bene il filo';
+    let r_8 = 'ospedale';
+    let r_9 = 'srotolare il filo';
     let r_10 = 'produrre seta';
-    let r_11 = 'srolotolare male il filo';
-    let r_12 = 'da antifurto';
+    let r_11 = 'contenere il filo';
+    let r_12 = 'rompere il filo';
     let r_13 = 'dasdd4';
     let r_14 = 'asddd';
     let r_15 = 'asd2';
@@ -128,13 +128,13 @@ jQuery(document).ready(function($){
       AOS.init();
       $('.answer h2').text(domanda_3);
       $('.box:first-child').attr('data-success','true').find('h3').text(r_9);
-      $('.box:first-child').find('img').attr('src','assets/img/13.png');
+      $('.box:first-child').find('img').attr('src','assets/img/9.png');
       $('.box:nth-child(2)').attr('data-success','false').find('h3').text(r_10);
-      $('.box:nth-child(2)').find('img').attr('src','assets/img/14.png');
+      $('.box:nth-child(2)').find('img').attr('src','assets/img/10.png');
       $('.box:nth-child(3)').attr('data-success','false').find('h3').text(r_11);
-      $('.box:nth-child(3)').find('img').attr('src','assets/img/15.png')
+      $('.box:nth-child(3)').find('img').attr('src','assets/img/11.png')
       $('.box:nth-child(4)').attr('data-success','false').find('h3').text(r_12);
-      $('.box:nth-child(4)').find('img').attr('src','assets/img/16.png');
+      $('.box:nth-child(4)').find('img').attr('src','assets/img/12.png');
       $(this).hide();
       $('.success-reply,.failure-reply').removeClass('visible');
       $('.container-reply.activate').removeClass('activate');

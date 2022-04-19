@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  /* background:red; */
+  height: 1920px;
+  width: 1080px;
+  font-family: 'Righteous', cursive;
+  overflow: hidden;
+}
+
+body * {
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.load-video {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: all .2s linear;
+}
+
+.load-video.none {
+  top: -100vh;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-video{
+  position: relative;
+}
+
+span.start-game {
+  position: absolute;
+  bottom: 60px;
+  right: 50px;
+  text-transform: uppercase;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 6px 3px #000;
+  z-index: 10;
+}
+
+.start-game.on{
+  animation-name: opacity-an;
+  animation-delay: 3s;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes opacity-an {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.btn-play {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-play h2{
+  color: #fff;
+  text-align: center;
+  font-size: 60px;
+  text-transform: uppercase;
+  margin-top: 25px;
+}
+
+.btn-play img {
+  width: 100%;
+}
+
+.main {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.container-answer {
+  width: 40%;
+  height: 100vh;
+  float: left
+}
+
+.container-box {
+  /* background: yellow; */
+  width: 60%;
+  height: auto;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.clear {
+  clear: both;
+}
+
+.box {
+  width: calc(50% - 60px);
+  height: 50%;
+  background: green;
+  display: inline-block;
+  /* margin-bottom: 180px; */
+  float: left;
+  margin: 15px;
+  padding: 30px;
+  position: relative;
+}
+
+.box * {
+  pointer-events: none;
+}
+
+.box .reply-box {
+  color: #fff;
+  font-size: 60px;
+  text-transform: uppercase;
+  text-shadow: 6px 5px 2px black;
+  text-align: center;
+  height: 30px;
+}
+
+.reply-box h3 {
+  font-size: 0.8em;
+}
+
+.container-answer {
+  padding: 80px 50px;
+}
+
+.video-loop {
+  height: 735px;
+  width: 100%;
+  /* background: yellow; */
+}
+
+.container-answer .answer h2 {
+  font-size: 40px;
+  min-height: 120px;
+  margin-bottom: 30px;
+}
+
+.top-answer {
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+
+.box .img-box {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+}
+
+.box .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.container-reply {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  /* background: red; */
+  top: -100vh;
+  left: 0;
+  right: 0;
+  transition: all .2s linear;
+  display: flex;
+}
+
+.container-reply.activate {
+  top: 0;
+}
+
+.failure-reply,
+.success-reply {
+  width: 100%;
+  display: flex;
+}
+
+.success-reply,
+.failure-reply {
+  display: none;
+}
+
+.success-reply.visible,
+.failure-reply.visible {
+  display: flex;
+}
+
+.container-failure,
+.container-success {
+  width: 60%;
+  background: green;
+  height: 100%;
+  padding: 50px;
+  position: relative;
+  pointer-events: none;
+}
+
+.video-loop-failure,
+.video-loop-success {
+  background: #fff;
+  width: 40%;
+  height: 100%;
+  padding: 50px;
+}
+
+.video-loop-failure .video-container,
+.video-loop-success .video-container {
+  height: calc(100% - 55px);
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.video-loop-success video,
+.video-loop-failure video {
+  transform: scale(1.3) translateY(-26px) translateX(-10px);
+}
+
+.container-failure h2,
+.container-success h2 {
+  font-size: 95px;
+  color: #fff;
+  text-shadow: 6px 5px 2px black;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.container-success:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* background: url('../img/star.gif'); */
+  background-repeat: space;
+  background-size: 300px;
+}
+
+.container-failure:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  /* background: url('../img/rainy.png'); */
+  background-repeat: space;
+  background-size: 300px;
+}
+
+.img-reply {
+  text-align: center;
+  margin: 200px auto;
+  height: 350px;
+  width: 350px;
+  position: relative;
+  z-index: 1;
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-duration: 0.5s;
+}
+
+.next-totem{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all .2s linear;
+}
+
+.next-totem.visible{
+  opacity: 1;
+  pointer-events: none;
+  visibility: visible;
+}
+
+.next-totem h2{
+  font-size: 50px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.0)
+  }
+
+  50% {
+    transform: scale(1.1)
+  }
+
+  100% {
+    transform: scale(1.0)
+  }
+}
+
+.img-reply img {
+  width: 100%;
+}
+
+.simbol-box {
+  margin-top: 30px;
+}
+
+.simbol-quad {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  margin: auto;
+  display: block;
+}
+
+.simbol-quad.rotate {
+  transform: rotate(45deg);
+}
+
+.simbol-quad.circle {
+  border-radius: 50%;
+}
+
+.simbol-quad.triangle {
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top: 0;
+  border-bottom: 30px solid white;
+  background: none;
+}
+
+.animation-bg {
+  position: absolute;
+  right: 0;
+  z-index: 999;
+  width: 60%;
+  height: 100%;
+  z-index: 1;
+  padding: 100px 50px;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.animation-bg.visible {
+  visibility: visible;
+}
+
+.animation-bg span {
+  width: 32%;
+  display: inline-block;
+  padding: 23px;
+}
+
+.animation-bg span img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.back,
+.next_answer a {
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #00ba00;
+  text-decoration: none;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.back {
+  color: #bf2e3b;
+}
+
+@media(width:1024px) and (height:600px) {
+  body {
+    width: 1024px;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .container-answer .answer h2 {
+    font-size: 20px;
+    line-height: 1.1
+  }
+
+  .box .img-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container-answer {
+    padding: 30px;
+  }
+
+  .top-answer {
+    font-size: 16px;
+  }
+
+  .container-answer .answer h2 {
+    min-height: 50px;
+    pointer-events: none;
+  }
+
+  .box .reply-box {
+    font-size: 30px;
+  }
+
+  .container-failure h2, .container-success h2 {
+    font-size: 45px;
+  }
+
+  .video-loop {
+    height: 405px;
+  }
+
+  .box {
+    padding: 20px;
+  }
+
+  .box .img-box {
+    bottom: 15px;
+  }
+
+  .img-reply {
+    text-align: center;
+    margin: 140px auto;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .container-failure:after,
+  .container-success:after {
+    height: calc(100% - 150px);
+    width: calc(100% - 120px);
+    background-size: 130px;
+    margin: 120px auto;
+    display: block;
+    text-align: center;
+    left: 0;
+    right: 0;
+  }
+}

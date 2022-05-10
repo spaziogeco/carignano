@@ -67,7 +67,7 @@ jQuery(document).ready(function($){
     let r_4 = 'Scarpe';
     let r_5 = 'Il museo';
     let r_6 = 'Un negozio';
-    let r_7 = 'Una bibblioteca';
+    let r_7 = 'Una libreria';
     let r_8 = 'Un ospedale';
     let r_9 = 'Srotolare il filo';
     let r_10 = 'Contenere il filo';

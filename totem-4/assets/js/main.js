@@ -180,9 +180,11 @@ jQuery(document).ready(function($){
       }else if($(this).hasClass('next-final')){
         AOS.init();
         $('.next-totem').addClass('visible');
+        const audio_final = document.getElementById('audio_final');
+        audio_final.play();
         setTimeout(function(){
           $('.next-totem').removeClass('visible');
-        },5000);
+        },45000);
         $(this).removeClass().addClass('next-1');
         $('.answer h2').text(domanda_1);
         $('.box:first-child').attr('data-success','false').find('h3').text(r_1);
